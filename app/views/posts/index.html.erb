@@ -1,6 +1,15 @@
 <h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
 
 <% @posts.each do |post| %>
-	<%= post.title %>
+	<div>
+		<p><%= post.title %></p>
+		<p>By: <%= post.author %></p>
+		<p>Content: <%= post.content %></p>
+		<p>
+			Tags:
+			<% post.tags.each do |tag| %>
+				<%= tag.name %>
+			<% end %>
+		</p>
+	</div>
 <% end %>
