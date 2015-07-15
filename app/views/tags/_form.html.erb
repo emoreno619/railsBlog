@@ -1,0 +1,20 @@
+<% if @tag.errors.any? %>
+  <% @tag.errors.full_messages.each do |error| %>
+   
+    <p class="text-danger">
+      <%= error%>
+    </p>
+  <% end %>
+<% end %>
+
+
+<%= form_for @tag do |f| %>
+    <%= f.label "Name" %>
+    <%= f.text_field :name %><br />
+    
+    <%= f.collection_check_boxes(:post_ids, @posts, :id, :title) do |b| %>
+            <%= b.check_box %>
+            <%= b.label %>
+        <% end %>
+    <%= f.submit "GO!" %>
+<% end %>
