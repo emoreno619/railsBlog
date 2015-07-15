@@ -10,6 +10,15 @@ class PostsController < ApplicationController
   	@tags = Tag.all
   end
 
+  def create
+  	@post = Post.create(post_params)
+  	if @post.save
+  		redirect_to posts_path, notice: 'Post successfully added'
+  	else
+  		render :new
+  	end
+  end
+
   def edit
   end
 
@@ -17,6 +26,9 @@ class PostsController < ApplicationController
   end
 
   private
+  	  def post_params
+  	  	params.require(:post).permit(:title, :author, :content, :tag_ids => [])
+  	  end
 	  def set_post
 	  	@post = Post.find_by(id: params[:id])
 	  end
