@@ -36,6 +36,11 @@ class TagsController < ApplicationController
   def show
   end
 
+  def destroy
+  	@tag.destroy
+  	redirect_to tags_path
+  end
+
   private
 	  def tag_params
 		params.require(:tag).permit(:name, :post_ids => [])	  	
