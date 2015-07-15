@@ -24,6 +24,15 @@ class TagsController < ApplicationController
   def edit
   end
 
+  def update
+  	@tag.update_attributes(tag_params)
+  	if @tag.save
+  		redirect_to tags_path
+  	else
+  		render :edit
+  	end
+  end
+
   def show
   end
 
