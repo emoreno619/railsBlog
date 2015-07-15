@@ -23,6 +23,15 @@ class PostsController < ApplicationController
 def edit
   end
 
+def update
+	@post.update_attributes(post_params)
+	if @post.save
+		redirect_to posts_path, notice: 'Post successfully updated'
+	else
+		render :edit
+	end
+end
+
   def show
   end
 
