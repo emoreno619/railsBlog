@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_tags, only: [:show, :edit, :update, :destroy]
 
   def index
 	@posts = Post.all
@@ -19,7 +20,7 @@ class PostsController < ApplicationController
   	end
   end
 
-  def edit
+def edit
   end
 
   def show
@@ -31,5 +32,8 @@ class PostsController < ApplicationController
   	  end
 	  def set_post
 	  	@post = Post.find_by(id: params[:id])
+	  end
+	  def set_tags
+	  	@tags = Tag.all
 	  end
 end
