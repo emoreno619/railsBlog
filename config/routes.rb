@@ -1,22 +1,6 @@
 Rails.application.routes.draw do
-  get 'posts/index'
-
-  get 'posts/new'
-
-  get 'posts/edit'
-
-  get 'posts/show'
-
-  get 'tags/index'
-
-  get 'tags/new'
-
-  get 'tags/edit'
-
-  get 'tags/show'
 
   root 'posts#index'
-
   resources :posts
   resources :tags
   # The priority is based upon order of creation: first created -> highest priority.
