@@ -1,5 +1,8 @@
 class TagsController < ApplicationController
   
+  before_action :set_tag, only: [:show, :edit, :update, :destroy]
+  before_action :set_posts, only: [:show, :edit, :update, :destroy]
+
   def index
   	@tags = Tag.all
   end
@@ -27,5 +30,13 @@ class TagsController < ApplicationController
   private
 	  def tag_params
 		params.require(:tag).permit(:name, :post_ids => [])	  	
+	  end
+
+	  def set_tag
+	  	@tag = Tag.find_by(id: params[:id])
+	  end
+
+	  def set_posts
+	  	@posts = Post.all
 	  end
 end
