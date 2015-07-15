@@ -1,18 +1,20 @@
 <h1>Tags#index</h1>
 <p>Find me in app/views/tags/index.html.erb</p>
-
+	<%= link_to "Home", posts_path %>
 	<%= link_to "Add a Tag", new_tag_path %>
 
 <% @tags.each do |tag| %>
 	<div>
-		<p><%= tag.name %></p>
+		<p>Tag name: <%= link_to tag.name, tag_path(tag.id) %></p>
 		<p><%= link_to "See More", tag_path(tag.id) %></p>
 		<p><%= link_to "Edit this Tag", edit_tag_path(tag.id) %></p>
 		<p>
-			Post:
+			Post(s):
 			<% tag.posts.each do |post| %>
-				<%= link_to post.title, post_path(post.id) %>
-				, By: <%= post.author %>
+				<p>
+					<%= link_to post.title, post_path(post.id) %>
+					By: <%= post.author %>
+				</p>
 			<% end %>
 		</p>
 	</div>

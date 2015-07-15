@@ -1,2 +1,17 @@
 <h1>Tags#show</h1>
-<p>Find me in app/views/tags/show.html.erb</p>
+	<%= link_to "Home", posts_path %>
+
+<div>
+	<p>Tag name:<%= @tag.name %></p>
+	<p><%= link_to "See More", tag_path(@tag.id) %></p>
+	<p><%= link_to "Edit this Tag", edit_tag_path(@tag.id) %></p>
+	<p>
+		Post(s):
+		<% @tag.posts.each do |post| %>
+			<p>
+				<%= link_to post.title, post_path(post.id) %>
+				By: <%= post.author %>
+			</p>
+		<% end %>
+	</p>
+</div>
