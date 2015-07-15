@@ -35,6 +35,11 @@ end
   def show
   end
 
+  def destroy
+  	@post.destroy
+  	redirect_to posts_path
+  end
+
   private
   	  def post_params
   	  	params.require(:post).permit(:title, :author, :content, :tag_ids => [])
