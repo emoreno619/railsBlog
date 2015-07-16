@@ -1,20 +1,31 @@
-<h1>Posts#index</h1>
-	<%= link_to "Add a Post", new_post_path %>
-	<%= link_to "Tags Page", tags_path %>
 
+<div class="allPosts">
 <% @posts.each do |post| %>
-	<div>
-		<p><%= post.title %></p>
-		<p>Author: <%= post.author %></p>
-		<p>User responsible: <%= post.user.name %></p>
-		<p>Content: <%= post.content %></p>
-		<p><%= link_to "See More", post_path(post.id) %></p>
-		<p><%= link_to "Edit this Post", edit_post_path(post.id) %></p>
-		<p>
-			Tags:
-			<% post.tags.each do |tag| %>
-				<%= tag.name %>
-			<% end %>
-		</p>
+	<div class="panel panel-primary aPost">
+	                <div class="panel-heading">
+	                  <h1 class="panel-title aPostTitle">
+	                  	<%= link_to post.title, post_path(post.id) %>
+	                  </h1>
+	                </div>
+	                <div class="panel-body aPostBody">
+	                	
+	                	<span class="label label-info"><%= post.user.name %><span class="badge"><%= post.user.posts.length%></span></span>
+						<p>Author: <%= post.author %></p>
+						<p class="post-body"><%= post.content %></p>
+						<p><%= link_to "Edit this Post", edit_post_path(post.id) %></p>
+
+						<div class="panel panel-info">
+						                <div class="panel-heading">
+						                  <h3 class="panel-title">Tags:</h3>
+						                </div>
+						                <div class="panel-body">
+						                	<% post.tags.each do |tag| %>
+						        				<%= tag.name %>          
+						                	<% end %>
+						                </div>
+						                
+		              	</div>
+		  			</div>
 	</div>
 <% end %>
+</div>
