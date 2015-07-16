@@ -7,6 +7,13 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Post.destroy_all
+u1 = User.create({
+	name: "Eduardo"
+	})
+
+u2 = User.create({
+	name: "AliasAndy"
+	})
 
 p1 = Post.create({
 	title: "Original Post Name 1",
