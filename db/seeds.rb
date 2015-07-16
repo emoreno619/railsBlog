@@ -50,4 +50,6 @@ p3.tags << t2
 p3.tags << t4
 p3.tags << t5
 
-
+u1.posts << p1
+u1.posts << p2
+u2.posts << p3

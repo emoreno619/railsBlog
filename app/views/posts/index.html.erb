@@ -5,7 +5,8 @@
 <% @posts.each do |post| %>
 	<div>
 		<p><%= post.title %></p>
-		<p>By: <%= post.author %></p>
+		<p>Author: <%= post.author %></p>
+		<p>User responsible: <%= post.user.name %></p>
 		<p>Content: <%= post.content %></p>
 		<p><%= link_to "See More", post_path(post.id) %></p>
 		<p><%= link_to "Edit this Post", edit_post_path(post.id) %></p>
