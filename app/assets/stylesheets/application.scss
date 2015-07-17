@@ -47,6 +47,7 @@
  }
 
  .allPosts{
+ 	padding-top: 50px;
  	max-height: 600px;
  	overflow-y: auto;
  }
@@ -55,6 +56,10 @@
  	height: 70px;
  	
  }
+
+nav {
+	margin-bottom: 100px;
+}
 
 // .container{
 // 	box-sizing: border-box;

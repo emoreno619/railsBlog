@@ -3,14 +3,15 @@
 <% @posts.each do |post| %>
 	<div class="panel panel-primary aPost">
 	                <div class="panel-heading">
-	                  <h1 class="panel-title aPostTitle">
+	                  <h1 style="float: left; margin-left: 20px;" class="panel-title aPostTitle">
 	                  	<%= link_to post.title, post_path(post.id) %>
 	                  </h1>
+	                  <span style="float: right; margin-top: 12px" class="label label-info" data-toggle="tooltip" data-placement="right" title="<%= post.author %>"><%= post.user.name %><span class="badge"><%= post.user.posts.length%></span></span>
 	                </div>
 	                <div class="panel-body aPostBody">
-	                	
-	                	<span class="label label-info"><%= post.user.name %><span class="badge"><%= post.user.posts.length%></span></span>
-						<p>Author: <%= post.author %></p>
+	            
+	                	<!-- <span style="float: right; margin-top: 0px" class="label label-info" data-toggle="tooltip" data-placement="left" title="<%= post.author %>"><%= post.user.name %><span class="badge"><%= post.user.posts.length%></span></span> -->
+
 						<p class="post-body"><%= post.content %></p>
 						<p><%= link_to "Edit this Post", edit_post_path(post.id) %></p>
 
